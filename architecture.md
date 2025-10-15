@@ -11,7 +11,7 @@
 ## Project Structure
 
 ```
-HRSoftware/
+CUSTOMERS CRM/
 ├── src/
 │   ├── components/        # React components with co-located CSS
 │   │   ├── Sidebar.tsx

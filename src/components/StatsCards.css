@@ -91,3 +91,41 @@
   margin-left: 0;
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .stats-cards {
+    padding: 0 20px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-cards {
+    flex-direction: column;
+    padding: 0 20px 20px;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-cards {
+    padding: 0 16px 16px;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+}
+
