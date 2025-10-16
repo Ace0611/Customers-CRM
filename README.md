@@ -1,4 +1,4 @@
-# HR Software - Customers Dashboard
+# Customer CRM - Customers Dashboard
 
 A modern, minimalistic React + TypeScript application recreating the Customers screen from the provided design.
 
