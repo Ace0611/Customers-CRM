@@ -1,10 +1,20 @@
 import React, { useState, useMemo } from 'react';
-import { Customer, SortOption } from '../types';
+import { Customer, SortOption } from '../../../types';
+import { Badge } from '../../atoms/Badge/Badge';
+import { TableHeader } from '../../molecules/TableHeader/TableHeader';
+import { TableControls } from '../../molecules/TableControls/TableControls';
+import { Pagination } from '../../molecules/Pagination/Pagination';
 import './CustomersTable.css';
 
 interface CustomersTableProps {
   customers: Customer[];
 }
+
+const SORT_OPTIONS = [
+  { value: 'Newest', label: 'Newest' },
+  { value: 'Name', label: 'Name' },
+  { value: 'Status', label: 'Status' },
+];
 
 export const CustomersTable: React.FC<CustomersTableProps> = ({ customers }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -54,72 +64,30 @@ export const CustomersTable: React.FC<CustomersTableProps> = ({ customers }) => 
   const startEntry = sortedCustomers.length === 0 ? 0 : (currentPage - 1) * pageSize + 1;
   const endEntry = Math.min(currentPage * pageSize, sortedCustomers.length);
 
-  const renderPageNumbers = () => {
-    const pages = [];
-    
-    for (let i = 1; i <= Math.min(4, totalPages); i++) {
-      pages.push(
-        <button
-          key={i}
-          className={`page-number ${currentPage === i ? 'active' : ''}`}
-          onClick={() => setCurrentPage(i)}
-        >
-          {i}
-        </button>
-      );
-    }
-    
-    if (totalPages > 4) {
-      pages.push(<span key="ellipsis" className="page-ellipsis">...</span>);
-      pages.push(
-        <button
-          key={totalPages}
-          className={`page-number ${currentPage === totalPages ? 'active' : ''}`}
-          onClick={() => setCurrentPage(totalPages)}
-        >
-          {totalPages}
-        </button>
-      );
-    }
-    
-    return pages;
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    setCurrentPage(1);
+  };
+
+  const getStatusVariant = (status: string): 'success' | 'error' => {
+    return status === 'Active' ? 'success' : 'error';
   };
 
   return (
     <div className="customers-table-container">
-      <div className="table-header">
-        <div className="table-title-section">
-          <h2 className="table-title">All Customers</h2>
-          <span className="active-members-link">Active Members</span>
-        </div>
-        <div className="table-controls">
-          <div className="search-wrapper">
-            <span className="search-icon">🔍</span>
-            <input
-              type="text"
-              placeholder="Search"
-              className="table-search"
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setCurrentPage(1);
-              }}
-            />
-          </div>
-          <div className="sort-wrapper">
-            <label>Short by :</label>
-            <select
-              className="sort-select"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortOption)}
-            >
-              <option value="Newest">Newest</option>
-              <option value="Name">Name</option>
-              <option value="Status">Status</option>
-            </select>
-          </div>
-        </div>
-      </div>
+      <TableHeader 
+        title="All Customers" 
+        subtitle="Active Members"
+      >
+        <TableControls
+          searchValue={searchQuery}
+          onSearchChange={handleSearchChange}
+          sortValue={sortBy}
+          sortOptions={SORT_OPTIONS}
+          onSortChange={(value) => setSortBy(value as SortOption)}
+          searchPlaceholder="Search"
+        />
+      </TableHeader>
 
       <table className="customers-table">
         <thead>
@@ -148,9 +116,9 @@ export const CustomersTable: React.FC<CustomersTableProps> = ({ customers }) => 
                 <td>{customer.email}</td>
                 <td>{customer.country}</td>
                 <td>
-                  <span className={`status-badge ${customer.status.toLowerCase()}`}>
+                  <Badge variant={getStatusVariant(customer.status)}>
                     {customer.status}
-                  </span>
+                  </Badge>
                 </td>
               </tr>
             ))
@@ -158,28 +126,14 @@ export const CustomersTable: React.FC<CustomersTableProps> = ({ customers }) => 
         </tbody>
       </table>
 
-      <div className="table-footer">
-        <div className="footer-info">
-          Showing data {startEntry} to {endEntry} of {sortedCustomers.length > 256000 ? '256K' : sortedCustomers.length} entries
-        </div>
-        <div className="pagination">
-          <button
-            className="page-arrow"
-            onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-            disabled={currentPage === 1}
-          >
-            &lt;
-          </button>
-          {renderPageNumbers()}
-          <button
-            className="page-arrow"
-            onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-            disabled={currentPage === totalPages}
-          >
-            &gt;
-          </button>
-        </div>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+        startEntry={startEntry}
+        endEntry={endEntry}
+        totalEntries={sortedCustomers.length}
+      />
     </div>
   );
 };

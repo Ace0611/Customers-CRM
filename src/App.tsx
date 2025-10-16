@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Sidebar } from './components/Sidebar';
-import { TopBar } from './components/TopBar';
-import { StatsCards } from './components/StatsCards';
-import { CustomersTable } from './components/CustomersTable';
+import { useState } from 'react';
+import { Sidebar } from './components/organisms/Sidebar/Sidebar';
+import { TopBar } from './components/organisms/TopBar/TopBar';
+import { StatsCards } from './components/organisms/StatsCards/StatsCards';
+import { CustomersTable } from './components/organisms/CustomersTable/CustomersTable';
 import { mockCustomers } from './data/mockCustomers';
 import './App.css';
 
