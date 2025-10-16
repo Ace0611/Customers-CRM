@@ -1,0 +1,186 @@
+.customers-table-container {
+  background: #fff;
+  border-radius: 24px;
+  margin: 0 40px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 0 24px;
+}
+
+.customers-table thead th {
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #B5B7C0;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.customers-table tbody td {
+  padding: 20px 12px;
+  font-size: 14px;
+  color: #292D32;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.customers-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status badges now handled by Badge atom component */
+
+.empty-state {
+  text-align: center;
+  color: #9197B3;
+  padding: 40px 12px !important;
+}
+
+/* Loading State */
+.table-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.table-loading p {
+  margin-top: 16px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Error State */
+.table-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.table-error h3 {
+  margin: 0 0 8px 0;
+  color: #D0004B;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.table-error p {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 14px;
+  max-width: 400px;
+}
+
+.retry-button {
+  background: #5932EA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retry-button:hover {
+  background: #4c2bb8;
+}
+
+/* Empty State */
+.table-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.table-empty h3 {
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.table-empty p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  max-width: 300px;
+}
+
+/* Pagination now handled by Pagination molecule component */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .customers-table-container {
+    margin: 0 20px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .customers-table-container {
+    margin: 0 20px 20px;
+    border-radius: 16px;
+    overflow-x: auto;
+  }
+
+  .customers-table {
+    min-width: 650px;
+    padding: 0 16px;
+  }
+
+  .customers-table thead th {
+    font-size: 12px;
+    padding: 10px 8px;
+  }
+
+  .customers-table tbody td {
+    font-size: 12px;
+    padding: 16px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .customers-table-container {
+    margin: 0 16px 16px;
+    border-radius: 12px;
+  }
+
+  .customers-table {
+    min-width: 600px;
+    padding: 0 12px;
+  }
+
+  .customers-table thead th {
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+
+  .customers-table tbody td {
+    font-size: 11px;
+    padding: 12px 6px;
+  }
+}
+

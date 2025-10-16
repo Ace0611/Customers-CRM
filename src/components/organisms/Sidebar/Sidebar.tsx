@@ -16,9 +16,14 @@ const menuItems: MenuItem[] = [
   { icon: '❓', label: 'Help' },
 ];
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
         <span className="logo">⬡</span>
         <span className="logo-text">Dashboard</span>
@@ -27,7 +32,11 @@ export const Sidebar: React.FC = () => {
       
       <nav className="sidebar-nav">
         {menuItems.map((item) => (
-          <div key={item.label} className={`nav-item ${item.active ? 'active' : ''}`}>
+          <div 
+            key={item.label} 
+            className={`nav-item ${item.active ? 'active' : ''}`}
+            onClick={onClose}
+          >
             <span className="nav-icon">{item.icon}</span>
             <span className="nav-label">{item.label}</span>
             {!item.active && <span className="nav-arrow">›</span>}

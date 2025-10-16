@@ -2,11 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Sidebar } from './Sidebar';
 
 const meta = {
-  title: 'Components/Sidebar',
+  title: 'Organisms/Sidebar',
   component: Sidebar,
   parameters: {
     layout: 'fullscreen',
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;

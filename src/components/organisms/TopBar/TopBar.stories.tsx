@@ -2,11 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TopBar } from './TopBar';
 
 const meta = {
-  title: 'Components/TopBar',
+  title: 'Organisms/TopBar',
   component: TopBar,
   parameters: {
     layout: 'fullscreen',
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof TopBar>;
 
 export default meta;

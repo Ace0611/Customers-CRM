@@ -1,6 +1,7 @@
 import { Customer } from '../types';
 
-export const mockCustomers: Customer[] = [
+// Mock data as fallback
+const mockData: Customer[] = [
   { id: 1, name: 'Jane Cooper', company: 'Microsoft', phone: '(225) 555-0118', email: 'jane@microsoft.com', country: 'United States', status: 'Active' },
   { id: 2, name: 'Floyd Miles', company: 'Yahoo', phone: '(205) 555-0100', email: 'floyd@yahoo.com', country: 'Kiribati', status: 'Inactive' },
   { id: 3, name: 'Ronald Richards', company: 'Adobe', phone: '(302) 555-0107', email: 'ronald@adobe.com', country: 'Israel', status: 'Inactive' },
@@ -14,4 +15,27 @@ export const mockCustomers: Customer[] = [
   { id: 11, name: 'Emma Wilson', company: 'Apple', phone: '(505) 555-0145', email: 'emma@apple.com', country: 'Germany', status: 'Active' },
   { id: 12, name: 'Robert Fox', company: 'Twitter', phone: '(702) 555-0122', email: 'robert@twitter.com', country: 'France', status: 'Inactive' },
 ];
+
+// Simple API function - just change the URL to switch to real API
+export const fetchCustomers = async (): Promise<Customer[]> => {
+  const API_URL = "https://api.example.com";
+  
+  // If no API URL is set, use mock data
+  if (true) { // Change true to API_URL empty string check in case of real API
+    return mockData;
+  }
+
+  try {
+    const response = await fetch(`${API_URL}/customers`);
+    if (!response.ok) throw new Error('API failed');
+    const data = await response.json();
+    return data.customers || data.data || data;
+  } catch (error) {
+    console.warn('API failed, using mock data:', error);
+    return mockData;
+  }
+};
+
+// For backward compatibility
+export const mockCustomers = mockData;
 
