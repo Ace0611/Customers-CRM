@@ -77,6 +77,9 @@ export const Large: Story = {
 };
 
 export const AllIcons: Story = {
+  args: {
+    name: 'dashboard',
+  },
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '16px', width: '400px' }}>
       <Icon name="dashboard" />

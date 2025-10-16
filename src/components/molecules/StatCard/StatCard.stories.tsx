@@ -78,6 +78,11 @@ export const NegativeTrend: Story = {
 };
 
 export const AllVariants: Story = {
+  args: {
+    title: 'Stats',
+    value: '0',
+    icon: 'dashboard',
+  },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
       <StatCard

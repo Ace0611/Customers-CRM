@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavItem } from '../../molecules/NavItem/NavItem';
-import { Icon } from '../../atoms/Icon/Icon';
 import './Navigation.css';
 
 export interface NavItemData {

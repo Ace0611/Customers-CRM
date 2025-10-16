@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from '../../atoms/Icon/Icon';
-import { Badge } from '../../atoms/Badge/Badge';
 import './StatCard.css';
 
 export interface StatCardProps {

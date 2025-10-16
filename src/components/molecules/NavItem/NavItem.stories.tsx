@@ -59,6 +59,10 @@ export const Income: Story = {
 };
 
 export const AllNavItems: Story = {
+  args: {
+    icon: 'dashboard',
+    label: 'Dashboard',
+  },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '240px' }}>
       <NavItem icon="dashboard" label="Dashboard" />

@@ -80,6 +80,9 @@ export const Medium: Story = {
 };
 
 export const AllVariants: Story = {
+  args: {
+    children: 'Badge',
+  },
   render: () => (
     <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
       <Badge variant="success">Active</Badge>
