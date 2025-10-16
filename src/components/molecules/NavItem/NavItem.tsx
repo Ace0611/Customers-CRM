@@ -35,3 +35,4 @@ export const NavItem: React.FC<NavItemProps> = ({
     </div>
   );
 };
+

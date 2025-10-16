@@ -81,3 +81,4 @@ export const CustomBranding: Story = {
     version: 'v.2.0',
   },
 };
+

@@ -94,3 +94,4 @@ export const AllIcons: Story = {
     </div>
   ),
 };
+
