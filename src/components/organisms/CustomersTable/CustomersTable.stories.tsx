@@ -20,6 +20,20 @@ export const Default: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    customers: [],
+    isLoading: true,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    customers: [],
+    error: 'Failed to load customers. Please check your internet connection and try again.',
+  },
+};
+
 export const Empty: Story = {
   args: {
     customers: [],

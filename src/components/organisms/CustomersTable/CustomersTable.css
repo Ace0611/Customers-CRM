@@ -40,6 +40,96 @@
   padding: 40px 12px !important;
 }
 
+/* Loading State */
+.table-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.table-loading p {
+  margin-top: 16px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Error State */
+.table-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.table-error h3 {
+  margin: 0 0 8px 0;
+  color: #D0004B;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.table-error p {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 14px;
+  max-width: 400px;
+}
+
+.retry-button {
+  background: #5932EA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retry-button:hover {
+  background: #4c2bb8;
+}
+
+/* Empty State */
+.table-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.table-empty h3 {
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.table-empty p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  max-width: 300px;
+}
+
 /* Pagination now handled by Pagination molecule component */
 
 /* Responsive Design */

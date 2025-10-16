@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Customer, SortOption } from '../../../types';
 import { Badge } from '../../atoms/Badge/Badge';
+import { LoadingSpinner } from '../../atoms/LoadingSpinner/LoadingSpinner';
 import { TableHeader } from '../../molecules/TableHeader/TableHeader';
 import { TableControls } from '../../molecules/TableControls/TableControls';
 import { Pagination } from '../../molecules/Pagination/Pagination';
@@ -8,6 +9,8 @@ import './CustomersTable.css';
 
 interface CustomersTableProps {
   customers: Customer[];
+  isLoading?: boolean;
+  error?: string | null;
 }
 
 const SORT_OPTIONS = [
@@ -16,7 +19,11 @@ const SORT_OPTIONS = [
   { value: 'Status', label: 'Status' },
 ];
 
-export const CustomersTable: React.FC<CustomersTableProps> = ({ customers }) => {
+export const CustomersTable: React.FC<CustomersTableProps> = ({ 
+  customers, 
+  isLoading = false, 
+  error = null 
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('Newest');
   const [currentPage, setCurrentPage] = useState(1);
@@ -73,6 +80,80 @@ export const CustomersTable: React.FC<CustomersTableProps> = ({ customers }) => 
     return status === 'Active' ? 'success' : 'error';
   };
 
+  // Render loading state
+  if (isLoading) {
+    return (
+      <div className="customers-table-container">
+        <TableHeader 
+          title="All Customers" 
+          subtitle="Active Members"
+        >
+          <TableControls
+            searchValue={searchQuery}
+            onSearchChange={handleSearchChange}
+            sortValue={sortBy}
+            sortOptions={SORT_OPTIONS}
+            onSortChange={(value) => setSortBy(value as SortOption)}
+            searchPlaceholder="Search"
+          />
+        </TableHeader>
+        <div className="table-loading">
+          <LoadingSpinner size="large" />
+          <p>Loading customers...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Render error state
+  if (error) {
+    return (
+      <div className="customers-table-container">
+        <TableHeader 
+          title="All Customers" 
+          subtitle="Active Members"
+        />
+        <div className="table-error">
+          <div className="error-icon">⚠️</div>
+          <h3>Something went wrong</h3>
+          <p>{error}</p>
+          <button 
+            className="retry-button"
+            onClick={() => window.location.reload()}
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Render empty state (when no customers at all)
+  if (customers.length === 0) {
+    return (
+      <div className="customers-table-container">
+        <TableHeader 
+          title="All Customers" 
+          subtitle="Active Members"
+        >
+          <TableControls
+            searchValue={searchQuery}
+            onSearchChange={handleSearchChange}
+            sortValue={sortBy}
+            sortOptions={SORT_OPTIONS}
+            onSortChange={(value) => setSortBy(value as SortOption)}
+            searchPlaceholder="Search"
+          />
+        </TableHeader>
+        <div className="table-empty">
+          <div className="empty-icon">📊</div>
+          <h3>No customers yet</h3>
+          <p>Get started by adding your first customer.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="customers-table-container">
       <TableHeader 
@@ -104,7 +185,7 @@ export const CustomersTable: React.FC<CustomersTableProps> = ({ customers }) => 
           {paginatedCustomers.length === 0 ? (
             <tr>
               <td colSpan={6} className="empty-state">
-                No customers found
+                No customers found matching your search
               </td>
             </tr>
           ) : (
