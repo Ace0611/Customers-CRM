@@ -1,4 +1,4 @@
-name: Deploy CRM App Only
+name: Deploy Storybook to GitHub Pages
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages-app"
+  group: "pages-storybook"
   cancel-in-progress: false
 
 jobs:
@@ -35,15 +35,13 @@ jobs:
         run: |
           npm install @rollup/rollup-linux-x64-gnu --save-optional || true
 
-      - name: Build App
-        run: npm run build
-        env:
-          NODE_ENV: production
+      - name: Build Storybook
+        run: npm run build-storybook
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './storybook-static'
 
   deploy:
     environment:
@@ -55,4 +53,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
