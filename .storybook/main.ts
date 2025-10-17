@@ -10,6 +10,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: false,
   },
+  viteFinal: async (config) => {
+    if (config.base) {
+      config.base = '/Customers-CRM/storybook/';
+    }
+    return config;
+  },
 };
 
 export default config;

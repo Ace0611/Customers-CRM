@@ -39,6 +39,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          VITE_BASE_PATH: '/Customers-CRM/app/'
 
       - name: Build Storybook
         run: npm run build-storybook
