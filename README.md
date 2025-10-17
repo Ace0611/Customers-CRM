@@ -6,7 +6,7 @@
 [![Vite](https://img.shields.io/badge/Vite-5.0-purple.svg)](https://vitejs.dev/)
 [![Deployment](https://img.shields.io/badge/Deployed-GitHub%20Pages-green.svg)](https://ace0611.github.io/Customers-CRM/)
 
-A modern, responsive Customer Relationship Management (CRM) dashboard built with **React**, **TypeScript**, and **Atomic Design principles**. Features a complete **Storybook design system** with 25+ documented components, showcasing professional frontend development skills.
+A modern, responsive Customer Relationship Management (CRM) dashboard built with **React**, **TypeScript**, and **Atomic Design principles**. Features a complete **Storybook design system** with 18 documented components, showcasing professional frontend development skills.
 
 ## 🎯 Project Overview
 
@@ -182,14 +182,9 @@ Customers-CRM/
 │   │   │       ├── TopBar.css
 │   │   │       └── TopBar.stories.tsx
 │   │   │
-│   │   └── 📁 templates/            # Page layouts (1 component)
-│   │       └── 📁 DashboardLayout/
-│   │           ├── DashboardLayout.tsx # Complete dashboard
-│   │           ├── DashboardLayout.css
-│   │           └── DashboardLayout.stories.tsx
-│   │
-│   ├── 📁 data/                     # Mock data
-│   │   └── mockCustomers.ts         # Sample customer data
+│   │   ├── 📁 data/                     # Mock data
+│   │   │   └── mockCustomers.ts         # Sample customer data
+│   │   │
 │   │
 │   ├── App.tsx                      # Main application component
 │   ├── App.css                      # Global application styles
@@ -212,13 +207,25 @@ Customers-CRM/
 ### Component Hierarchy
 
 ```
-Template (DashboardLayout)
-  ↓
-Organisms (Navigation, StatsGrid)
-  ↓
-Molecules (NavItem, StatCard, SearchBar)
-  ↓
-Atoms (Button, Input, Badge, Icon)
+Organisms (6 components)
+├── CustomersTable → TableControls + TableHeader + Pagination
+├── Navigation → NavItem molecules
+├── StatsGrid → StatCard molecules
+├── Sidebar → Navigation organism
+├── StatsCards → StatCard molecules
+└── TopBar → SearchBar molecule
+
+Molecules (6 components)
+├── NavItem → Icon atom
+├── SearchBar → Input + Icon atoms
+├── StatCard → Icon + Badge atoms
+├── TableControls → SearchBar + Select atoms
+├── TableHeader → Text content
+└── Pagination → Button atoms
+
+Atoms (6 components)
+├── Button, Badge, Icon
+├── Input, Select, LoadingSpinner
 ```
 
 ## 📱 Responsive Design
@@ -229,7 +236,7 @@ The application is fully responsive with breakpoints:
 - **Tablet:** ≤ 768px - Adapted spacing, vertical cards
 - **Desktop:** > 768px - Full sidebar, horizontal layout
 
-## 🎯 Key Components (25+ Components)
+## 🎯 Key Components (18 Components)
 
 ### ⚛️ Atoms (6 components) - Basic Building Blocks
 - **Button** - 4 variants (primary, secondary, outline, ghost), 3 sizes
@@ -255,8 +262,6 @@ The application is fully responsive with breakpoints:
 - **StatsCards** - Statistics display with trend indicators
 - **TopBar** - Header bar with user actions and search
 
-### 📐 Templates (1 component) - Page Layouts
-- **DashboardLayout** - Complete dashboard template with navigation and content areas
 
 ## 📊 Architecture
 
@@ -374,13 +379,13 @@ npm run clean            # Clean all build artifacts
 
 This project is ideal for demonstrating:
 
-1. **Frontend Architecture** - Component-driven development
-2. **Design System Skills** - Atomic Design implementation
-3. **TypeScript Proficiency** - Type-safe development
-4. **Responsive Design** - Mobile-first approach
-5. **DevOps Knowledge** - CI/CD with GitHub Actions
-6. **Documentation Skills** - Comprehensive Storybook setup
-7. **Performance Optimization** - React best practices
+1. **Frontend Architecture** - Component-driven development with 18 components
+2. **Design System Skills** - Atomic Design implementation (Atoms → Molecules → Organisms)
+3. **TypeScript Proficiency** - Type-safe development with full coverage
+4. **Responsive Design** - Mobile-first approach with breakpoints
+5. **DevOps Knowledge** - CI/CD with GitHub Actions deployment
+6. **Documentation Skills** - Comprehensive Storybook setup with 18+ stories
+7. **Performance Optimization** - React best practices with useMemo and efficient rendering
 
 ## 🤝 Contributing
 

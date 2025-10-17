@@ -36,8 +36,6 @@ CUSTOMERS CRM/
 │   │   │   ├── StatsCards/          # Statistics grid
 │   │   │   ├── StatsGrid/           # Stats layout
 │   │   │   └── TopBar/              # Header bar
-│   │   └── templates/               # Page layouts
-│   │       └── DashboardLayout/     # Main dashboard layout
 │   ├── data/                        # Mock data
 │   │   └── mockCustomers.ts
 │   ├── types.ts                     # TypeScript interfaces
@@ -54,7 +52,6 @@ CUSTOMERS CRM/
 - **Atoms**: Basic building blocks (Button, Input, Badge, etc.)
 - **Molecules**: Simple component combinations (SearchBar, TableControls)
 - **Organisms**: Complex UI sections (CustomersTable, Sidebar, TopBar)
-- **Templates**: Page layouts (DashboardLayout)
 - **Co-located files**: Each component has its own folder with .tsx, .css, and .stories.tsx
 
 ### 2. Component Composition
@@ -129,14 +126,12 @@ mockCustomers → App → CustomersTable (organism)
 - **StatsGrid**: Stats layout with responsive grid
 - **TopBar**: Header bar with user actions
 
-### Templates (1 component)
-- **DashboardLayout**: Main dashboard layout with navigation and content areas
 
 ## Storybook Documentation
 - **Comprehensive stories**: Every component has multiple story variations
 - **Interactive docs**: Auto-generated documentation from TypeScript
 - **Design system**: Centralized component showcase and testing
-- **Organized by atomic levels**: Atoms → Molecules → Organisms → Templates
+- **Organized by atomic levels**: Atoms → Molecules → Organisms (18 components total)
 
 ## Current Feature Set
 

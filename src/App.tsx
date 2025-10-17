@@ -41,6 +41,7 @@ function App() {
 
   return (
     <div className="app">
+      {/* For responsive designing */}
       <button 
         className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
         onClick={toggleMobileMenu}
