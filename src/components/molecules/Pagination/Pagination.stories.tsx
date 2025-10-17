@@ -2,12 +2,33 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Pagination } from './Pagination';
 
 const meta = {
-  title: 'Molecules/Pagination',
+  title: 'Design System/Molecules/Pagination',
   component: Pagination,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'A pagination component with smart ellipsis handling and page navigation.',
+      },
+    },
   },
-  tags: ['autodocs'],
+  argTypes: {
+    currentPage: {
+      control: { type: 'number' },
+    },
+    totalPages: {
+      control: { type: 'number' },
+    },
+    startEntry: {
+      control: { type: 'number' },
+    },
+    endEntry: {
+      control: { type: 'number' },
+    },
+    totalEntries: {
+      control: { type: 'number' },
+    },
+  },
 } satisfies Meta<typeof Pagination>;
 
 export default meta;

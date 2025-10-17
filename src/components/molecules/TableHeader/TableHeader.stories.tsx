@@ -3,12 +3,24 @@ import { TableHeader } from './TableHeader';
 import { TableControls } from '../TableControls/TableControls';
 
 const meta = {
-  title: 'Molecules/TableHeader',
+  title: 'Design System/Molecules/TableHeader',
   component: TableHeader,
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: 'A table header component with title, subtitle, and optional controls.',
+      },
+    },
   },
-  tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+    },
+    subtitle: {
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof TableHeader>;
 
 export default meta;

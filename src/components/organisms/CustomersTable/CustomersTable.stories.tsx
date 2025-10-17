@@ -3,12 +3,24 @@ import { CustomersTable } from './CustomersTable';
 import { mockCustomers } from '../../../data/mockCustomers';
 
 const meta = {
-  title: 'Organisms/CustomersTable',
+  title: 'Design System/Organisms/CustomersTable',
   component: CustomersTable,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'A comprehensive data table with search, sorting, pagination, and customer management features.',
+      },
+    },
   },
-  tags: ['autodocs'],
+  argTypes: {
+    isLoading: {
+      control: { type: 'boolean' },
+    },
+    error: {
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof CustomersTable>;
 
 export default meta;

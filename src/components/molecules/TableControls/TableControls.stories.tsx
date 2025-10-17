@@ -2,12 +2,27 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TableControls } from './TableControls';
 
 const meta = {
-  title: 'Molecules/TableControls',
+  title: 'Design System/Molecules/TableControls',
   component: TableControls,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Table controls combining search functionality with sort options for data tables.',
+      },
+    },
   },
-  tags: ['autodocs'],
+  argTypes: {
+    searchValue: {
+      control: { type: 'text' },
+    },
+    sortValue: {
+      control: { type: 'text' },
+    },
+    searchPlaceholder: {
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof TableControls>;
 
 export default meta;

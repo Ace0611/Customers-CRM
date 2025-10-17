@@ -2,12 +2,25 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LoadingSpinner } from './LoadingSpinner';
 
 const meta = {
-  title: 'Atoms/LoadingSpinner',
+  title: 'Design System/Atoms/LoadingSpinner',
   component: LoadingSpinner,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'A loading spinner component with different sizes for indicating loading states.',
+      },
+    },
   },
-  tags: ['autodocs'],
+  argTypes: {
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
+    },
+    className: {
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof LoadingSpinner>;
 
 export default meta;

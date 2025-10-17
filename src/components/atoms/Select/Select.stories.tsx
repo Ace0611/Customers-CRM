@@ -2,12 +2,28 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Select } from './Select';
 
 const meta = {
-  title: 'Atoms/Select',
+  title: 'Design System/Atoms/Select',
   component: Select,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'A select dropdown component with customizable options and sizes.',
+      },
+    },
   },
-  tags: ['autodocs'],
+  argTypes: {
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    value: {
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof Select>;
 
 export default meta;
