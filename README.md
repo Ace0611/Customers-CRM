@@ -26,7 +26,8 @@ A modern, responsive Customer Relationship Management (CRM) dashboard built with
 
 ## 🚀 Live Demo
 
-- **📱 Live Application:** [View CRM App](https://ace0611.github.io/Customers-CRM/)
+- **🏠 Landing Page:** [Choose Your Experience](https://ace0611.github.io/Customers-CRM/)
+- **📱 Live Application:** [View CRM App](https://ace0611.github.io/Customers-CRM/app/)
 - **🎨 Design System:** [View Storybook](https://ace0611.github.io/Customers-CRM/storybook/)
 - **📖 Source Code:** [GitHub Repository](https://github.com/ace0611/Customers-CRM)
 

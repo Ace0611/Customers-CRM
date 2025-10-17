@@ -48,14 +48,15 @@ jobs:
           # Create deployment directory
           mkdir -p deploy
           
-          # Copy app files to root
-          cp -r dist/* deploy/
+          # Copy app files to /app subdirectory
+          mkdir -p deploy/app
+          cp -r dist/* deploy/app/
           
           # Copy storybook to /storybook subdirectory
           mkdir -p deploy/storybook
           cp -r storybook-static/* deploy/storybook/
           
-          # Create index.html that redirects to app
+          # Create main landing page
           cat > deploy/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
@@ -108,7 +109,7 @@ jobs:
               <h1>🎨 Customer CRM</h1>
               <p>Choose what you'd like to explore:</p>
               <div class="links">
-                <a href="./" class="btn">📱 Live Application</a>
+                <a href="./app/" class="btn">📱 Live Application</a>
                 <a href="./storybook/" class="btn btn-secondary">🎨 Design System (Storybook)</a>
               </div>
               <p style="margin-top: 30px; color: #666; font-size: 14px;">
