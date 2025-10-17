@@ -26,8 +26,8 @@ A modern, responsive Customer Relationship Management (CRM) dashboard built with
 
 ## 🚀 Live Demo
 
-- **🎨 Design System (Storybook):** [View Storybook](https://ace0611.github.io/Customers-CRM/)
-- **📱 Live Application:** [View App](https://ace0611.github.io/Customers-CRM/)
+- **📱 Live Application:** [View CRM App](https://ace0611.github.io/Customers-CRM/)
+- **🎨 Design System:** [View Storybook](https://ace0611.github.io/Customers-CRM/storybook/)
 - **📖 Source Code:** [GitHub Repository](https://github.com/ace0611/Customers-CRM)
 
 ## 🏗️ Tech Stack
@@ -74,6 +74,9 @@ npm run build
 
 # Build Storybook
 npm run build-storybook
+
+# Test deployment locally
+./test-deployment.sh
 ```
 
 ## 🎨 Design System Structure
@@ -166,7 +169,7 @@ The project includes GitHub Actions workflows for automatic deployment:
 2. **Set source to "GitHub Actions"**
 3. **Push to main branch** - Auto-deploys!
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+See [TESTING.md](./TESTING.md) for local testing before deployment.
 
 ### Alternative Deployments
 
@@ -200,6 +203,27 @@ netlify deploy --prod
 
 The application uses mock data (`src/data/mockCustomers.ts`) with 12 sample customers. The data structure is designed for easy replacement with backend API calls.
 
+## 🧪 Testing
+
+### Local Testing
+```bash
+# Test deployment locally (simulates GitHub Actions)
+./test-deployment.sh
+
+# Quick build test
+npm run test-build
+
+# Clean environment test
+npm run clean && ./test-deployment.sh
+```
+
+### Pre-Deployment Checklist
+- [ ] `./test-deployment.sh` passes completely
+- [ ] No TypeScript errors (`tsc` passes)
+- [ ] App builds successfully (`npm run build`)
+- [ ] Storybook builds successfully (`npm run build-storybook`)
+- [ ] Both `dist/` and `storybook-static/` directories created
+
 ## 🤝 Contributing
 
 This is a portfolio/showcase project. Feel free to fork and adapt for your own use!
@@ -217,4 +241,3 @@ MIT License - feel free to use this project for learning or portfolio purposes.
 ---
 
 **Built with ❤️ using React, TypeScript, and Atomic Design principles**
-
